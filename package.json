@@ -1,0 +1,8 @@
+{
+  "name": "highspots-node-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:highspots/highspots-node-api.git",
+  "author": "Vinicius Santana <santanaviny@gmail.com>",
+  "license": "MIT"
+}
