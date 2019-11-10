@@ -2,7 +2,14 @@
   "name": "highspots-node-api",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev-server": "nodemon server.js"
+  },
   "repository": "git@github.com:highspots/highspots-node-api.git",
   "author": "Vinicius Santana <santanaviny@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
 }
