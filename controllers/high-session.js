@@ -2,9 +2,6 @@ const HighSession =  require("../models/high-session");
 
 exports.createHighSession = function (req, res, next) {
     const highSession = new HighSession(req.body);
-
-
-
     highSession.save(function (err) {
         if (err) {
             next(err);
@@ -16,7 +13,6 @@ exports.createHighSession = function (req, res, next) {
 
 exports.updateHighSessionUrlParam = function (req, res, next) {
     HighSession.findByIdAndUpdate(req.params.highSessionId, req.body, { new: true }, function (err, highSession) {
-        console.log('err', err, 'highSession', highSession)
         if (err) {
             next(err);
         } else {
@@ -27,7 +23,6 @@ exports.updateHighSessionUrlParam = function (req, res, next) {
 
 exports.updateHighSession = function (req, res, next) {
     HighSession.findByIdAndUpdate(req.body._id, req.body, { new: true, useFindAndModify: false }, function (err, highSession) {
-        console.log('err', err, 'highSession', highSession)
         if (err) {
             next(err);
         } else {
