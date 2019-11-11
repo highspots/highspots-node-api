@@ -16,3 +16,8 @@ Create a database locally, mongo Atlas, etc.
 ## HEROKU
 
 https://highspots-node-api.herokuapp.com/high-sessions
+
+
+## Swagger
+
+https://highspots-node-api.herokuapp.com/api-docs/
