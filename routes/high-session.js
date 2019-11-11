@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const verify = require('./verifyToken');
 
 const {
     getByIdHighSession,
@@ -14,13 +15,13 @@ const {
 router.param('highSessionId', getByIdHighSession);
 
 router.route('/')
-  .post(createHighSession)
-  .put(updateHighSession)
-  .get(getAllHighSessions);
+  .post(verify, createHighSession)
+  .put(verify, updateHighSession)
+  .get(verify, getAllHighSessions);
 
 router.route('/:highSessionId')
-  .get(getOneHighSession)  
-  .put(updateHighSessionUrlParam)
-  .delete(deleteHighSession);
+  .get(verify, getOneHighSession)  
+  .put(verify, updateHighSessionUrlParam)
+  .delete(verify, deleteHighSession);
 
 module.exports = router;
