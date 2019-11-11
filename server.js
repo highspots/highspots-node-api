@@ -5,6 +5,8 @@ const port = process.env.PORT || 4200;
 const db = mongoose.connection;
 const isDevelopment =  app.get('env') === 'development';
 const highSessions = require('./routes/high-session');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 mongoose.connect(isDevelopment ? process.env.DEV_DATABASE : process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });    
 
@@ -17,6 +19,9 @@ db.once('open', function () {
 db.on('error', function (err) {
     console.log(err);
 });
+
+// Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Body Parser Middleware
 app.use(express.json()) // for parsing application/json
