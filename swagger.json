@@ -1,0 +1,119 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "HighSpots API",
+        "description": "HighSpots API",
+        "version": "1.0.0"
+    },
+    "host": "https://highspots-node-api.herokuapp.com/",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/high-sessions": {
+            "get": {
+                "summary": "Returns a list of high sessions.",
+                "description": "get list of high sessions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "tags": [
+                    "orders"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "get high sessions in response",
+                        "schema": {
+                            "$ref": "#/definitions/response"
+                        }
+                    },
+                    "500": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new high sesion",
+                "description": "Create a new high sesion\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "content",
+                        "in": "body",
+                        "description": "content",
+                        "schema": {
+                            "$ref": "#/definitions/createHighSpot"
+                        }
+                    }
+                ],
+                "tags": [
+                    "orders"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "place an order in inventory operation response",
+                        "schema": {
+                            "$ref": "#/definitions/response"
+                        }
+                    },
+                    "500": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        },
+        "response": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "createHighSpot": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
