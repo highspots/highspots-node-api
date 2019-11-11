@@ -4,13 +4,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev-server": "nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "repository": "git@github.com:highspots/highspots-node-api.git",
   "author": "Vinicius Santana <santanaviny@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^16.1.7",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.9",
     "nodemon": "^1.19.4",
     "swagger-ui-express": "^4.1.2"

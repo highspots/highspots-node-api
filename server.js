@@ -2,23 +2,32 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 4200;
+const dotenv = require('dotenv');
 const db = mongoose.connection;
 const isDevelopment =  app.get('env') === 'development';
 const highSessions = require('./routes/high-session');
+const authRoute = require('./routes/auth');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
-mongoose.connect(isDevelopment ? process.env.DEV_DATABASE : process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });    
 
-// Check connection
-db.once('open', function () {
-    console.log('Connected to MongoDB');
-});
+dotenv.config();
 
-// Check for DB errors
-db.on('error', function (err) {
-    console.log(err);
-});
+mongoose.connect(
+    isDevelopment ? process.env.DEV_DATABASE : process.env.MONGODB_URI, 
+    { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false },
+    () => console.log('Connected to MongoDB')
+);
+
+// // Check connection
+// db.once('open', function () {
+//     console.log('Connected to MongoDB');
+// });
+
+// // Check for DB errors
+// db.on('error', function (err) {
+//     console.log(err);
+// });
 
 // Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -40,6 +49,9 @@ app.use((req, res, next) => {
     }
     next();
 });
+
+// Route Middlewares
+app.use('/api/user', authRoute);
 
 // Routes
 app.use('/high-sessions', highSessions);
