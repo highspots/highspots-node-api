@@ -4,12 +4,14 @@
 
 Create a database locally, mongo Atlas, etc.
 
+```
 // nodemon.js
 {
     "env": {
         "DEV_DATABASE": "database-url-here"
     }
 }
+```
 
 ## HEROKU
 
