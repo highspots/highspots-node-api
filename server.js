@@ -8,8 +8,6 @@ const highSessions = require('./routes/high-session');
 
 mongoose.connect(isDevelopment ? process.env.DEV_DATABASE : process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });    
 
-
-
 // Check connection
 db.once('open', function () {
     console.log('Connected to MongoDB');

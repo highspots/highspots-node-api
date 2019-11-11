@@ -10,3 +10,7 @@ Create a database locally, mongo Atlas, etc.
         "DEV_DATABASE": "database-url-here"
     }
 }
+
+## HEROKU
+
+https://highspots-node-api.herokuapp.com/high-sessions
