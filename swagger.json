@@ -5,7 +5,7 @@
         "description": "HighSpots API",
         "version": "1.0.0"
     },
-    "host": "https://highspots-node-api.herokuapp.com/",
+    "host": "highspots-node-api.herokuapp.com",
     "schemes": [
         "http",
         "https"
