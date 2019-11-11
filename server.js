@@ -6,9 +6,9 @@ const db = mongoose.connection;
 const isDevelopment =  app.get('env') === 'development';
 const highSessions = require('./routes/high-session');
 
-if (isDevelopment) {}
+mongoose.connect(isDevelopment ? process.env.DEV_DATABASE : process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });    
 
-mongoose.connect(process.env.DEV_DATABASE, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });    
+
 
 // Check connection
 db.once('open', function () {
