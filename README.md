@@ -21,3 +21,16 @@ https://highspots-node-api.herokuapp.com/high-sessions
 ## Swagger
 
 https://highspots-node-api.herokuapp.com/api-docs/
+
+
+## Development
+
+yarn run dev
+
+## Build
+
+yarn run build
+
+## Start (server)
+
+yarn start
