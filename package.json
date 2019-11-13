@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all build dist",
-    "dist": "node dist/server.js",
+    "start": "node src/server.js",
     "dev": "NODE_ENV=development babel-node src/server.js",
     "clean": "rimraf dist",
     "build": "rimraf dist && babel src --out-dir dist",
