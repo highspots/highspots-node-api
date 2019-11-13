@@ -8,7 +8,7 @@ const isDevelopment =  app.get('env') === 'development';
 const highSessions = require('./routes/high-session');
 const authRoute = require('./routes/auth');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const swaggerDocument = require('../swagger.json');
 
 
 dotenv.config();

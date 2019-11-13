@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node dist/server.js",
+    "dev": "NODE_ENV=development babel-node src/server.js",
+    "clean": "rimraf dist",
+    "build": "rimraf dist && babel src --out-dir dist",
+    "watch": "nodemon"
   },
   "repository": "git@github.com:highspots/highspots-node-api.git",
   "author": "Vinicius Santana <santanaviny@gmail.com>",
@@ -17,9 +20,17 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.9",
     "nodemon": "^1.19.4",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.0",
     "swagger-ui-express": "^4.1.2"
   },
   "engines": {
     "node": "12.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1"
   }
 }
