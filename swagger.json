@@ -7,14 +7,81 @@
     },
     "host": "highspots-node-api.herokuapp.com",
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],
     "basePath": "/",
     "produces": [
         "application/json"
     ],
     "paths": {
+        "/high-spots": {
+            "get": {
+                "summary": "Returns a list of high spots.",
+                "description": "get list of high spots",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "tags": [
+                    "High Spots"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "get high spots in response",
+                        "schema": {
+                            "$ref": "#/definitions/highspotsModel"
+                        }
+                    },
+                    "500": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new high spot",
+                "description": "Create a new high spot\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "content",
+                        "in": "body",
+                        "description": "content",
+                        "schema": {
+                            "$ref": "#/definitions/highspotModel"
+                        }
+                    }
+                ],
+                "tags": [
+                    "High Spots"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Creates a new highspot",
+                        "schema": {
+                            "$ref": "#/definitions/highspotResponseModel"
+                        }
+                    },
+                    "500": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/high-sessions": {
             "get": {
                 "summary": "Returns a list of high sessions.",
@@ -27,7 +94,7 @@
                 ],
                 "parameters": [],
                 "tags": [
-                    "orders"
+                    "High Sessions"
                 ],
                 "responses": {
                     "200": {
@@ -59,16 +126,16 @@
                         "in": "body",
                         "description": "content",
                         "schema": {
-                            "$ref": "#/definitions/createHighSpot"
+                            "$ref": "#/definitions/highspotResponseModel"
                         }
                     }
                 ],
                 "tags": [
-                    "orders"
+                    "High Sessions"
                 ],
                 "responses": {
                     "200": {
-                        "description": "place an order in inventory operation response",
+                        "description": "place a highsession in operation response",
                         "schema": {
                             "$ref": "#/definitions/response"
                         }
@@ -82,6 +149,9 @@
                 }
             }
         }
+    },
+    "securityDefinitions": {
+
     },
     "definitions": {
         "Error": {
@@ -107,10 +177,33 @@
                 }
             }
         },
-        "createHighSpot": {
+        "highspotsModel": {
+            "type": "array",
+            "items": {                
+                "$ref": "#/definitions/highspotResponseModel"
+            }
+        },        
+        "highspotResponseModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "geolocation": {
+                    "type": "string"
+                }
+            }
+        },
+        "highspotModel": {
             "type": "object",
             "properties": {
                 "name": {
+                    "type": "string"
+                },
+                "geolocation": {
                     "type": "string"
                 }
             }
