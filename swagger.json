@@ -1,20 +1,64 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.0",
     "info": {
         "title": "HighSpots API",
         "description": "HighSpots API",
         "version": "1.0.0"
     },
-    "host": "highspots-node-api.herokuapp.com",
+    "servers": [
+        {
+            "url": "https://highspots-node-api.herokuapp.com/",
+            "description": "Heroku"
+        },
+        {
+            "url": "http://localhost:5000/",
+            "description": "Localhost"
+        }
+    ],
     "schemes": [
         "https",
         "http"
     ],
-    "basePath": "/",
     "produces": [
         "application/json"
     ],
     "paths": {
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/goodies": {
+            "get": {
+                "tags": [
+                    "Goodies"
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Goodies"
+                ]
+            }
+        },
+        "/memories": {
+            "get": {
+                "tags": [
+                    "Memories"
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Memories"
+                ]
+            }
+        },
         "/high-spots": {
             "get": {
                 "summary": "Returns a list of high spots.",
