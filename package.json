@@ -1,9 +1,9 @@
 {
   "name": "highspots-node-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node ./dist/server.js",
     "dev": "NODE_ENV=development babel-node src/server.js",
     "clean": "rimraf dist",
     "build": "rimraf dist && babel src --out-dir dist",
