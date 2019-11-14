@@ -6,8 +6,7 @@
     "start": "node ./dist/server.js",
     "dev": "NODE_ENV=development babel-node src/server.js",
     "clean": "rimraf dist",
-    "build-babel": "babel ./src --out-dir ./dist",
-    "build": "rimraf dist && build-babel",
+    "build": "rimraf dist && babel ./src --out-dir ./dist",
     "watch": "nodemon"
   },
   "repository": "git@github.com:highspots/highspots-node-api.git",
